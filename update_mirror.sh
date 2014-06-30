@@ -63,5 +63,5 @@ else
   #just a git mirror so mirror it accordingly
   git fetch
   git remote prune origin
-  git push gitlab
+  git remote | grep -v "^origin$" | xargs -n 1 git push --all --force
 fi

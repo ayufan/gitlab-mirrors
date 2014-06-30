@@ -18,6 +18,7 @@ cd "${git_mirrors_dir}"
 STATUS=0
 
 ls -1 "${repo_dir}/${gitlab_namespace}" | while read mirror;do
+  echo "Updating $mirror..."
   if ! ./update_mirror.sh "${mirror}" &> /dev/null;then
     red_echo "Error: ./update_mirror.sh ${mirror}" 1>&2
     STATUS=1
